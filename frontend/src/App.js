@@ -1,8 +1,10 @@
 import { useEffect } from "react";
 import Header from "./component/layout/Header/Header.js";
+import { Routes, Route } from "react-router-dom";
+import Home from "./component/Home/Home.js";
 import Footer from "./component/layout/Footer/Footer.js";
 import webFont from "webfontloader";
-import { BrowserRouter } from "react-router-dom";
+import "./app.css"
 
 function App() {
   useEffect(() => {
@@ -14,10 +16,14 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter>
+    <>
       <Header />
-      {/* <Footer /> */}
-    </BrowserRouter>
+      {/* <Routes> */}
+        <Home />
+        {/* <Route path="/" component={Home} /> */}
+      {/* </Routes> */}
+      <Footer />
+    </>
   );
 }
 export default App;
