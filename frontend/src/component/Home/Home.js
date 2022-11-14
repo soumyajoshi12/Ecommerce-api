@@ -2,6 +2,7 @@ import { Fragment } from "react";
 import "remixicon/fonts/remixicon.css";
 import "./Home.css";
 import Product from "./Product.js"
+import Metadata  from "../layout/Metadata";
 
 const product = {
   name: "Goa Tshirt",
@@ -15,6 +16,7 @@ const product = {
 const home = () => {
   return (
     <Fragment>
+      <Metadata title="ROBBIN"></Metadata>
       <div className="banner">
         <p>Welcome to ROBBIN</p>
         <h1>FIND AMAZING PRODUCTS BELOW</h1>
