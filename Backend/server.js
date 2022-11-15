@@ -9,13 +9,13 @@ process.on("uncaughtException", (err) => {
   process.exit(1);
 });
 
-
+// console.log(youtube);
 // config
 dotenv.config({ path: "Backend/.env" });
 
+
 // connecting to database
 databaseconnection();
-
 
 
 const server = app.listen(process.env.PORT, () => {

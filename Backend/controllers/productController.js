@@ -1,10 +1,18 @@
 // const { fork } = require("child_process");
 const ProductModel = require("../models/ProductModel");
+const ApiFeatures = require("../utils/apifeature");
 
 // Get all product
 exports.getallporducts = async (req, res) => {
   try {
-    const allProducts = await ProductModel.find();
+    const resutPerPage = process.env.resutPerPage;
+    const productCount = await ProductModel.countDocuments(  )
+
+    const apiFeature = new ApiFeatures(ProductModel.find(), req.query)
+      .search()
+      .filter()
+      .pagination(resutPerPage);
+    const allProducts = await apiFeature.query;
     res.status(200).json({
       success: true,
       allProducts,
