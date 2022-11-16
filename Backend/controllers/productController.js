@@ -6,7 +6,7 @@ const ApiFeatures = require("../utils/apifeature");
 exports.getallporducts = async (req, res) => {
   try {
     const resutPerPage = process.env.resutPerPage;
-    const productCount = await ProductModel.countDocuments(  )
+    const productCount = await ProductModel.countDocuments();
 
     const apiFeature = new ApiFeatures(ProductModel.find(), req.query)
       .search()
@@ -24,6 +24,7 @@ exports.getallporducts = async (req, res) => {
 // Create Product --admin
 exports.createProduct = async (req, res) => {
   try {
+    req.body.user = req.user.id;
     const newProduct = new ProductModel(req.body);
     // console.log(req.body);
     const createdProduct = await newProduct.save();
