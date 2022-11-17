@@ -1,5 +1,7 @@
+const { validate } = require("../models/userModel");
 const userModel = require("../models/userModel");
 const sendToken = require("../utils/jwtToken");
+const {sendEmail} = require("../utils/sendEmail");
 
 // Register a User
 exports.registerUser = async (req, res, next) => {
@@ -96,7 +98,36 @@ exports.forgotPassword = async (req, res, next) => {
   }
 
   // get ResetPassword Token
-   const resetToken = user.getResetPasswordToken()
+  const resetToken = user.getResetPasswordToken();
 
-   await
+  await user.save({ validateBeforSave: false });
+
+  const resetPasswordUrl = `${req.protocol}://${req.get(
+    "host"
+  )}/password/reset/${resetToken}`;
+
+  const message = `Your password reset token is :- \n\n${resetPasswordUrl}\n\n if you have not requested this email then , please ignore it `;
+
+  try {
+    await sendEmail({
+      email: user.email,
+      subject: "Robbin Password recovery",
+      message,
+    });
+
+    res.status(200).json({
+      success: true,
+      message: `Email send to ${user.email} successfully`,
+    });
+  } catch (err) {
+    user.resetPasswordToken = undefined;
+    user.resetPasswordExipire = undefined;
+
+    await user.save({ validateBeforSave: false });
+
+    return res.status(500).json({
+      success: false,
+      message: err.message,
+    });
+  }
 };
