@@ -372,7 +372,3 @@ exports.deleteUser = async (req, res, next) => {
   }
 };
 
-// //Create New Review or Update the review
-// exports.createProductReview = async (req,res,next)=>{
-
-// }
