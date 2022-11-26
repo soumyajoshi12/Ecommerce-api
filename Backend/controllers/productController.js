@@ -1,4 +1,3 @@
-// const { fork } = require("child_process");
 const ProductModel = require("../models/ProductModel");
 const ApiFeatures = require("../utils/apifeature");
 

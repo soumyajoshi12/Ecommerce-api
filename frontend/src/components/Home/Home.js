@@ -1,8 +1,12 @@
-import { Fragment } from "react";
+import { Fragment, useEffect } from "react";
 import "remixicon/fonts/remixicon.css";
 import "./Home.css";
-import Product from "./Product.js"
-import Metadata  from "../layout/Metadata";
+import Product from "./Product.js";
+import Metadata from "../layout/Metadata";
+import { useDispatch  } from "react-redux";
+import { getProductsAsync } from "../../ascynActions/productAsync";
+import logo from "../../images/ROBBIN.png";
+
 
 const product = {
   name: "Goa Tshirt",
@@ -13,11 +17,18 @@ const product = {
   _id: "p1",
 };
 
-const home = () => {
+const Home = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getProductsAsync());
+  }, [dispatch]);
+
   return (
     <Fragment>
       <Metadata title="ROBBIN"></Metadata>
       <div className="banner">
+        <img src={logo}></img>
         <p>Welcome to ROBBIN</p>
         <h1>FIND AMAZING PRODUCTS BELOW</h1>
         <a href="#container">
@@ -41,4 +52,4 @@ const home = () => {
   );
 };
 
-export default home;
+export default Home;

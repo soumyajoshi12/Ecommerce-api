@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
+import { useSelector } from "react-redux";
 
 const options = {
     edit:false,
@@ -12,6 +13,8 @@ const options = {
 }
 
 const Product = ({product}) => {
+  const {products}=useSelector((state)=>state)
+  // console.log(products)
   return <Link className="productCard" to={product._id}>
     <img src={product.images[0].url} alt="product img"/>
     <p>{product.name}</p>
