@@ -16,11 +16,13 @@ exports.getallporducts = async (req, res) => {
     res.status(200).json({
       success: true,
       allProducts,
+      productCount,
     });
   } catch (error) {
     res.send(error.message);
   }
 };
+
 // Create Product --admin
 exports.createProduct = async (req, res) => {
   try {

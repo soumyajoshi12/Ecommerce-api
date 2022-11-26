@@ -22,7 +22,7 @@ const home = () => {
         <h1>FIND AMAZING PRODUCTS BELOW</h1>
         <a href="#container">
           <button>
-            Scroll <i class="ri-mouse-line"></i>
+            Scroll <i className="ri-mouse-line"></i>
           </button>
         </a>
       </div>
