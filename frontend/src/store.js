@@ -1,14 +1,13 @@
 import { configureStore  } from "@reduxjs/toolkit";
-// import storage from "redux-persist/lib/storage";
-// import { persistReducer, persistStore } from "redux-persist";
 import productSlice from "../src/features/productSice"
-
+import productDetailSlice from "./features/productDetailSlice";
 
 
 export const store = configureStore({
   reducer: {
-    products:productSlice,
+    products: productSlice,
+    productDetail: productDetailSlice,
   },
 });
 
-export default  store;
+

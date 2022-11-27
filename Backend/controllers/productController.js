@@ -4,7 +4,7 @@ const ApiFeatures = require("../utils/apifeature");
 // Get all product
 exports.getallporducts = async (req, res) => {
   try {
-    const resutPerPage = process.env.resutPerPage;
+    const resutPerPage = 8;
     const productCount = await ProductModel.countDocuments();
 
     const apiFeature = new ApiFeatures(ProductModel.find(), req.query)

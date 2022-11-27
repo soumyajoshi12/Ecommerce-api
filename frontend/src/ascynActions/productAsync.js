@@ -1,13 +1,17 @@
-import {getProducts, getProductsRequest, getProductsFail} from '../features/productSice'
-import * as api from '../api/index'
-export const getProductsAsync=()=>async(dispatch)=>{
-try{
+import {
+  getProducts,
+  getProductsRequest,
+  getProductsFail,
+} from "../features/productSice";
+import * as api from "../api/index";
+export const getProductsAsync = () => async (dispatch) => {
+  try {
     dispatch(getProductsRequest());
-    let d = await api.fetchProducts();
+    let res = await api.fetchProducts();
     // console.log(d.data);
-    dispatch(getProducts(d.data))
-}
-catch(err){
-console.log(err);
-}
-}
+    dispatch(getProducts(res.data));
+  } catch (err) {
+    console.log(`error:${err.message}`);
+    dispatch(getProductsFail(err.message));
+  }
+};
