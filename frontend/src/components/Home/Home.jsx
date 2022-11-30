@@ -1,7 +1,7 @@
 import { Fragment, useEffect } from "react";
 import "remixicon/fonts/remixicon.css";
 import "./Home.css";
-import Product from "./Product.js";
+import Product from "./Product.jsx";
 import Metadata from "../layout/Metadata";
 import { useDispatch } from "react-redux";
 import { getProductsAsync } from "../../ascynActions/productAsync";
@@ -26,7 +26,7 @@ const Home = () => {
         <Fragment>
           <Metadata title="ROBBIN"></Metadata>
           <div className="banner">
-            <img src={logo}></img>
+            <img src={logo} alt="Logo"></img>
             <p>Welcome to ROBBIN</p>
             <h1>FIND AMAZING PRODUCTS BELOW</h1>
             <a href="#container">

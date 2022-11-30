@@ -23,7 +23,7 @@ export const productDetailSlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
-    clearError: (state, action) => {
+    clearError: (state) => {
       state.error = null;
     },
   },
