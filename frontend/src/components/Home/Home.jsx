@@ -8,6 +8,7 @@ import { getProductsAsync } from "../../ascynActions/productAsync";
 import logo from "../../images/ROBBIN.png";
 import { useSelector } from "react-redux";
 import Loader from "../layout/Loader/Loader";
+import { clearError } from "../../features/productSice";
 
 const Home = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,10 @@ const Home = () => {
   const { products, loading, productsCount, error } = useSelector((state) => state.products);
 
   useEffect(() => {
+    if(error){
+     alert.error(error)
+      dispatch(clearError)
+    }
     dispatch(getProductsAsync());
   }, [dispatch]);
 
