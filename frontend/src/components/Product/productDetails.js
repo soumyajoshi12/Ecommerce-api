@@ -12,17 +12,18 @@ import { clearError } from "../../features/productDetailSlice";
 const ProductDetails = () => {
   const dispatch = useDispatch();
   const param = useParams();
-  const { productDetails, loading, success } = useSelector(
+  const { productDetails, loading, success, error } = useSelector(
     (state) => state.productDetail
   );
 
   useEffect(() => {
-    if (error) {
+    if(error) {
      alert.error(error);
       dispatch(clearError());
     }
     dispatch(getProductDetailsAsync(param.id));
   }, [dispatch, param.id],error);
+  
 
   const options = {
     edit: false,

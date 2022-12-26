@@ -1,5 +1,5 @@
 import axios from "axios";
-// const url="http://localhost:3020/";
+// const url="http://localhost:4000/";
 
 //Get all product
 export const fetchProducts = () => {
@@ -11,5 +11,6 @@ export const fetchProducts = () => {
 };
 
 // Get single product
-export const fetchProductDetails = (id) => axios.get(`/detailProduct/${id}`);
+export const fetchProductDetails = (id) =>
+  axios.get(`/detailProduct/${id}`);
 

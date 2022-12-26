@@ -120,7 +120,7 @@
     font-size: 1.7vmax;
   }
 
-  .productCard > div{
+  .productCard > div {
     margin: 0;
     display: block;
   }
@@ -132,5 +132,8 @@
   .productCard > div > span {
     margin: 0 0.5vmax;
     font: 300 1vmax "Roboto";
+  }
+  .container {
+    width: 46vmax;
   }
 }
