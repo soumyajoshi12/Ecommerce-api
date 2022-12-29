@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import ReactStars from "react-rating-stars-component";
 // import { useSelector } from "react-redux";
 
-
-
 const Product = ({product}) => {
 
   const options = {

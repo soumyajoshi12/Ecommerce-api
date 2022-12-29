@@ -2,7 +2,7 @@ import React, { Fragment, useEffect } from "react";
 import "./Products.css";
 import { useDispatch, useSelector } from "react-redux";
 import Loader from "../layout/Loader/Loader";
-// import Product from "../Home/ProductCard";
+import Product from "../Home/Product";
 import { getProductsAsync } from "../../ascynActions/productAsync";
 
 const Products = () => {
@@ -16,9 +16,16 @@ const Products = () => {
   }, [dispatch]);
 
   return (
-    <Fragment>{loading ? <Loader /> : <Fragment>Done</Fragment>}</Fragment>
+    <Fragment>{loading ? <Loader /> : <Fragment>
+      <h2 className="productsHeading">Products</h2>
+      <div className="products">
+        {products && products.map((product) =>(
+          <Product key={product._id} product={product} />
+        ))}
+      </div>
+      </Fragment>}</Fragment>
   );
-  // return <div>done</div>
+  
 };
 
 export default Products;
