@@ -9,7 +9,7 @@ const {
   createProductReview,
   getProductReviews,
   deleteReview,
-} = require("../controllers/productcontroller");
+} = require("../controllers/productController");
 const { isAuthenticatedUser, authorizeRoles } = require("../middleware/auth");
 
 // Get all product
