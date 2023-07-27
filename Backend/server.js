@@ -1,6 +1,12 @@
 const app = require("./app");
 const dotenv = require("dotenv");
 const { databaseconnection } = require("./models/database");
+const cors = require('cors');
+const corsOptions = {
+  origin: ['http://localhost:3000'],
+};
+
+app.use(cors(corsOptions));
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
